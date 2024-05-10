@@ -4,24 +4,33 @@ A simple re-implementation of Necat... but `dog` 🐶. One of many side projects
 ## Core features
 The core features that must be available in the end product:
 
-- [ ] support the listen mode using TCP (as default) from the cli with flags `-l` to specify listen and `-p` to specify port.
-      ```bash
-      # e.g. 
-      bash ndog -l -p 8888
+- [ ] support the listen mode using TCP (as default) from the cli with flags `-l` to specify listen and `-p` to specify port e.g:
+      ```bash 
+      ndog -l -p 8888
       ```
       should be supported
 
-- [ ] support UDP severs with cli flag `-u` to specify UDP host and `-p` for port.
+- [ ] support UDP severs with cli flag `-u` to specify UDP host and `-p` for port e.g:
+      ```bash 
+      ndog -l -p -u 8888
+      ```
 
-- [ ] support the `-z` flag to ascertain if a server is listening on `one` or a range of ports, without sending data.
-
-- [ ] support the `-e` flag to execute a process and pipe the input and output to/from it to/from the connected clientand pipe the out
+- [ ] support the `-z` flag to ascertain if a server is listening on `one` or a range of ports, without sending data e.g:
       ```bash
-      # e.g.
+      ndog -z localhost 8888
+      Connection to localhost port 8888 [tcp] succeeded!
+      And with a range of ports: ...
+
+      ndog -z localhost 8880-8890
+      Connection to localhost port 8888 [tcp] succeeded!
+      ```
+
+- [ ] support the `-e` flag to execute a process and pipe the input and output to/from it to/from the connected clientand pipe the out e.g:
+      ```bash
       ndog -l -p 8888 -e /bin/bash
       ```
 
-- [ ] support a `-x` flag that provides a hex dump between client and server. With the following output expected:
+- [ ] support a `-x` flag that provides a hex dump between client and server. With the following output expected e.g:
     ```bash
       ndog -x -l -p 8888
         Hello from the client
