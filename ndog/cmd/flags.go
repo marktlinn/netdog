@@ -4,6 +4,8 @@ import (
 	"flag"
 	"fmt"
 	"log"
+
+	"github.com/marktlinn/netdog/ndog/tcp"
 )
 
 const usage = `
@@ -39,6 +41,10 @@ func (f *flags) Parse(flags *flag.FlagSet, args []string) error {
 	log.Printf("arg port: %d\n", *port)
 	log.Printf("arg exe: %s\n", *exe)
 	log.Printf("arg silentPort: %s\n", *silentPort)
+
+	if *listen {
+		tcp.ListenTcp(*port)
+	}
 
 	return nil
 }
