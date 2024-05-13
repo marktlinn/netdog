@@ -8,7 +8,8 @@ import (
 	"os"
 )
 
-func ListenTcp(port int) error {
+// ListenTCP listens for and manages TCP connections on the specified port.
+func ListenTCP(port int) error {
 	address := fmt.Sprintf(":%d", port)
 	listener, err := net.Listen("tcp", address)
 	if err != nil {
@@ -30,6 +31,7 @@ func ListenTcp(port int) error {
 	}
 }
 
+// handleConnection handles the incoming and outgoing data for a TCP connection. It ensure all data is writen to stdin or stdout respectively.
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
 

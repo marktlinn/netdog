@@ -4,13 +4,13 @@ A simple re-implementation of Necat... but `dog` 🐶. One of many side projects
 ## Core features
 The core features that must be available in the end product:
 
-- [ ] support the listen mode using TCP (as default) from the cli with flags `-l` to specify listen and `-p` to specify a target outgoing port e.g:
+- [-] support the listen mode using TCP (as default) from the cli with flags `-l` to specify listen and `-p` to specify a target outgoing port e.g:
       ```bash 
       nd -l -p 8888
       ```
       should be supported
 
-- [ ] support UDP severs with cli flag `-u` to specify UDP host and `-p` for a target outgoing port e.g:
+- [-] support UDP severs with cli flag `-u` to specify UDP host and `-p` for a target outgoing port e.g:
       ```bash 
       nd -l -u -p 8888
       ```
