@@ -13,7 +13,7 @@ func ListenUDP(port int) error {
 	address := fmt.Sprintf(":%d", port)
 	updAddr, err := net.ResolveUDPAddr("udp", address)
 	if err != nil {
-		return fmt.Errorf("failed to resolce udp address: %s", err)
+		return fmt.Errorf("failed to resolve udp address: %s", err)
 	}
 
 	udp, err := NewUDPConnection(updAddr)

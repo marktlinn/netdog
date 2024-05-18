@@ -28,26 +28,26 @@ func ZListenPorts(host string, ports []int) error {
 					log.Printf("failed to accept connection: %s\n", err)
 					continue
 				}
-				go handleConnection(conn)
+				go handleConnection(conn, &port)
 			}
 		}(port)
 	}
-
 	select {}
 }
 
 // handleConnection handles the incoming and outgoing data for a TCP connection. It ensure all data is writen to stdin.
-func handleConnection(conn net.Conn) {
+func handleConnection(conn net.Conn, port *int) {
 	defer conn.Close()
 
-	log.Printf("Connection established to %s\n", conn.RemoteAddr().String())
+	log.Printf("Connection to localhost port %d [tcp] succeeded\n", *port)
 
 	go func() {
-		defer log.Printf("Connection to %s closed\n", conn.RemoteAddr().String())
+		defer log.Printf("Connection to port %d [tcp] closed\n", *port)
 
 		_, err := io.Copy(os.Stdout, conn)
 		if err != nil {
 			log.Printf("failed to send connection output to Stdout: %s\n", err)
 		}
 	}()
+	select {}
 }

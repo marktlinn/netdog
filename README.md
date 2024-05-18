@@ -15,7 +15,7 @@ The core features that must be available in the end product:
       nd -l -u -p 8888
       ```
 
-- [ ] support the `-z` flag to ascertain if a server is listening on `one` or a range of ports, without sending data e.g:
+- [-] support the `-z` flag to ascertain if a server is listening on `one` or a range of ports, without sending data e.g:
       ```bash
       nd -z localhost 8888
       Connection to localhost port 8888 [tcp] succeeded!
